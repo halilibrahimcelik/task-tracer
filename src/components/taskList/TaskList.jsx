@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from "./taskList.module.scss";
 import { MdDeleteSweep } from 'react-icons/md'
 
 const TaskList = () => {
+    const[isClicked,setClicked] =useState(false);
   return (
-    <section className={styles["task-list"]}>
-        <div className={styles["task"]}>
+    <section className={styles["task-list"]} >
+
+        <div className={ isClicked?styles["taskDone"]: styles["task"]}  onClick={()=>setClicked(!isClicked)}  >
+            {isClicked&&<div className={styles.bar}></div>}
             <h3 className={styles["task-name"]}>
             Study React
             </h3>
