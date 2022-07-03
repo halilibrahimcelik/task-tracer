@@ -1,10 +1,10 @@
 import React from 'react'
-
+import styles from "./addTask.module.scss";
 const AddTask = () => {
   return (
     <section>
 
-    <form  className=>
+    <form  className={styles["form-area"]}>
         <div>
             <label htmlFor="task">Task</label>
              <input type="text" id='task' />
@@ -14,7 +14,7 @@ const AddTask = () => {
      <input type="date" />
  </div>
 
- <button>Save Task</button>
+ <button className={styles.btn} >Save Task</button>
 
 
     </form>

@@ -1,0 +1,44 @@
+@import "../../sass/variables";
+.form-area{
+    
+    display: flex;
+    flex-direction: column;
+ 
+    border-radius: 9px;
+    gap:1rem;
+   
+    input{
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        -webkit-box-sizing:border-box;
+        -moz-box-sizing: border-box;
+        padding: 0.4rem;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+    };
+    
+   .btn{
+    max-width: 10rem;
+    padding:0.5rem 0.8rem;
+    margin: 0 auto;
+    border: none;
+    border-radius: 5px;
+    background-color: $color-btn-show;
+    color:$Color-text;
+    cursor: pointer;
+transform: scale(0.90);
+
+    transition: all 0.5s ease-out;
+    backface-visibility: hidden;
+ 
+ 
+    &:hover{
+    
+        transform: scale(1);
+    }
+} 
+   
+
+}

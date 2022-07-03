@@ -3,9 +3,13 @@
 .card{
     display: flex;
     flex-direction: column;
-    padding:1rem;
+    padding:4rem;
     background-color: $color-bg;
-    min-width: 40rem;
+    width: 40%;
+    border-radius: 9px;
+    margin:0 6rem;
+    border:10px solid #ccc;
+
     
     h1{
         color:$Color-text;
@@ -13,3 +17,12 @@
     }
 
 }
+
+@media screen and  (max-width:760px) {
+    .card{
+     
+     width: 100%;
+     padding: 1rem;
+     margin: 1rem;
+    }
+ }
