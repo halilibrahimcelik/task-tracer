@@ -1,0 +1,15 @@
+@import "../../sass/variables";
+
+.card{
+    display: flex;
+    flex-direction: column;
+    padding:1rem;
+    background-color: $color-bg;
+    min-width: 40rem;
+    
+    h1{
+        color:$Color-text;
+        text-align: center;
+    }
+
+}

@@ -1,9 +1,10 @@
-import "./App.css";
+import Wrapper from "./components/UI/Wrapper";
+import "./sass/App.scss";
 
 function App() {
   return (
     <div className="App">
-      <h1>Header</h1>
+      <Wrapper />
     </div>
   );
 }
