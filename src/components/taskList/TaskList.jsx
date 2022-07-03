@@ -1,26 +1,21 @@
 import React, {useState} from 'react';
 import styles from "./taskList.module.scss";
-import { MdDeleteSweep } from 'react-icons/md'
 
-const TaskList = () => {
-    const[isClicked,setClicked] =useState(false);
+import Newlist from '../newList/Newlist';
+
+const TaskList = ({data}) => {
+ console.log(data)
+
   return (
-    <section className={styles["task-list"]} >
 
-        <div className={ isClicked?styles["taskDone"]: styles["task"]}  onClick={()=>setClicked(!isClicked)}  >
-            {isClicked&&<div className={styles.bar}></div>}
-            <h3 className={styles["task-name"]}>
-            Study React
-            </h3>
-            <p className={styles["task-date"]}>
-                Dec 2021 at 9:00pm
-            </p>
-        </div>
+    <>
+      {data.map((taskData,index)=>{
+        const {task,date,time,id}=taskData
+    return  ( <Newlist task={task} date={date} time={time} key={index} />  )
       
-     < MdDeleteSweep className= {styles.icon} />
-
-    </section>
-  )
+      })}
+    </>
+        )
 }
 
 export default TaskList

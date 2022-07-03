@@ -1,16 +1,46 @@
 import React,{useState} from 'react'
 import styles from "./addTask.module.scss";
-const AddTask = () => {
+import Warning from '../warning/Warning';
+const AddTask = (props) => {
+    const {onTaskHandler}=props
     const [initialTask, setinitialTask] = useState("");
     const [initialDate, setinitialDate] = useState("");
+    const [isValid,setValid]=useState(false);
+  
+    let hour=new Date().toTimeString().split(' ')[0].slice(0,5);
+
+
+
 
     const submitHandler=(e)=>{
         e.preventDefault();
-console.log(initialDate,initialTask);
+// console.log(initialDate,initialTask);
+if(initialTask==="" ||initialDate===""){
+   console.log("please fill the blank");
+setValid(true)
+   return
+   
+}
+
 setinitialDate("");
 setinitialTask("");
+
+
+
+const newTask={
+    task:initialTask,
+    date:initialDate,
+    time:hour,
+    // id:Math.random().toString()
+}
+
+onTaskHandler(newTask);
+// console.log(newTask)
     }
 
+  const  onValidHandler=()=>{
+    setValid(false)
+  }
   return (
     <section>
 
@@ -29,6 +59,8 @@ setinitialTask("");
 
     </form>
 
+
+{isValid&& <Warning   onValid={onValidHandler} />}
     </section>
   )
 }

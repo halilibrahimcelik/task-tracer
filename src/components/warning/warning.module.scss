@@ -1,0 +1,59 @@
+@import "../../sass/variables";
+.warning{
+    position: fixed;
+    background-color: rgba(0,0,0, 0.6);
+    top:0;
+    left:0;
+    height: 100vh;
+ width: 100%;
+}
+.warning-container{
+   display: flex;
+   flex-direction: column;
+   background-color: $Color-text;
+    margin:10rem auto;
+     max-width: 30rem;
+    // height: 20rem;
+    // border: 1px solid #ccc;
+    border-radius: 9px;
+
+
+    .header{
+        margin:0;
+        color:$Color-text;
+        text-align: left;
+ 
+         background-color: $color-btn-save;
+         padding-top: 2rem;
+         padding-bottom: 0.4rem;
+         padding-left: 1rem;
+         
+         border-radius: 9px 9px 0px 0px;
+      
+        
+    
+    }
+    .text{
+        background-color: $color-bg-coral;
+        margin:0;
+        padding:1rem  0 1rem 1rem;
+        font-weight: 800;
+    }
+
+    .btn{
+        max-width: 10rem;
+        padding:0.5rem 0.8rem;
+        margin: 0.4rem auto;
+        border: none;
+        border-radius: 5px;
+        background-color: $color-btn-show;
+        color:$Color-text;
+        cursor: pointer;
+    transform: scale(0.90);
+    
+        transition: all 0.5s ease-out;
+        backface-visibility: hidden;
+     
+    }
+
+}
