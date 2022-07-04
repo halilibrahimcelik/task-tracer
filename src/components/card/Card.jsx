@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from 'react'
+import ToggleButton from '../../toggleButton/ToggleButton';
 import AddTask from '../addTask/AddTask';
 import TaskList from '../taskList/TaskList';
 import styles from "./card.module.scss";
@@ -6,6 +7,7 @@ import styles from "./card.module.scss";
 const Card = () => {
 
 const [initialData,setData]=useState([]);
+const [isShow,setShow]=useState(false);
 console.log(initialData);
  //!LocalStorage
       useEffect(() => {
@@ -28,6 +30,8 @@ console.log(initialData);
         });
       };
 
+
+    //!!Updating localStorage value
 const isDoneHandler =(newTask)=>{
 const {id,isDone}=newTask[0]
 
@@ -39,7 +43,7 @@ localData.map((data)=>{
   if(data.id===id){
  data.isDone=isDone
   }
-  return newArr.push(data)
+  return newArr.push(data);
 
 })
 
@@ -48,13 +52,29 @@ setData([...newArr])
 ;
 }
 
+const onToggleHandler=()=>{
+  setShow(!isShow)
+
+}
+
+const removeTaskHandler=(index)=>{
+  let taskList = initialData;
+  taskList.splice(index, 1);
+  console.log(taskList);
+  setData([...taskList]);
+}
 
   return (
     <section className={styles.card}>
 
 <h1>Task-Tracker</h1>
-<AddTask onTaskHandler={addTaskHandler}  />
-{initialData.length===0?null:<TaskList  data={initialData}  isDoneHandler={isDoneHandler} />}
+<ToggleButton onToggle={onToggleHandler}  isShow={isShow} />
+{!isShow?<AddTask onTaskHandler={addTaskHandler}  onToggle={onToggleHandler}/>:null
+
+}
+
+
+{initialData.length===0?null:<TaskList  data={initialData}  isDoneHandler={isDoneHandler}  onRemoveTaskHandler={removeTaskHandler}/>}
 
     </section>
   )

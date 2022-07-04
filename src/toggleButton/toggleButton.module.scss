@@ -1,0 +1,33 @@
+@import "../sass/variables";
+.btn{
+    background-color:#5cb85c;
+    border:none;
+   cursor:pointer;
+   padding:0.9rem 0.8rem;
+   width: 10rem;
+   margin:0 auto;
+   border-radius: 5px;
+   color:$Color-text;
+   font-weight: 700;
+   transform:rotateZ(0);
+   transition: all 0.4s ease-in;
+&:hover{
+    transform:rotateZ(360deg)
+}
+}
+.btnDanger{
+    background-color:$color-btn-show;
+    border:none;
+   cursor:pointer;
+   padding:0.9rem 0.8rem;
+   width: 10rem;
+   margin:0 auto;
+   border-radius: 5px;
+   color:$Color-text;
+   font-weight: 700;
+   transform:rotateZ(0);
+   transition: all 0.4s ease-in;
+&:hover{
+    transform:rotateZ(360deg)
+}
+}

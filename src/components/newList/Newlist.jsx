@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import styles from "./newList.module.scss";
 import { MdDeleteSweep } from 'react-icons/md'
 const Newlist = (props) => {
-  const  {task,date,time,isDone ,isDoneHandler,id}=props;
+  const  {task,date,time,isDone ,isDoneHandler,id,onRemoveTaskHandler,index}=props;
     const[isClicked,setClicked] =useState(true);
 
 
@@ -26,6 +26,9 @@ isDoneHandler(newArr);
 
 
 
+   const removeTaskHandler=()=>{
+    onRemoveTaskHandler(index)
+   }
 
 
 
@@ -46,7 +49,7 @@ isDoneHandler(newArr);
           </p>
       </div>
 
-   < MdDeleteSweep className= {styles.icon} />
+   < MdDeleteSweep className= {styles.icon} onClick={()=>removeTaskHandler()} />
   </section>
     </>
   )
