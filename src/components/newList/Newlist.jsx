@@ -46,7 +46,7 @@ const showModalHandler=()=>{
       <div className={ isDone?styles["taskDone"]: styles["task"]}  onClick={(e)=>clickHandler(e)}  >
           {isDone&&<div className={styles.bar}></div>}
           <h3 className={styles["task-name"]}>
-       <strong>Task:</strong> {task}
+       Task: {task}
           </h3>
           <p className={styles["task-date"]}>
              <strong>Due Date:</strong> {date}

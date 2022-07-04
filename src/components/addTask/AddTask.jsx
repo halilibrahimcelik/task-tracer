@@ -49,7 +49,7 @@ onTaskHandler(newTask);
     <form  className={styles["form-area"]} onSubmit={(e)=>submitHandler(e)}>
         <div>
             <label htmlFor="task">Task</label>
-             <input type="text" id='task'  value={initialTask} onChange={(e)=> setinitialTask(e.target.value)} />
+             <input type="text" id='task'  value={initialTask} maxLength={25} onChange={(e)=> setinitialTask(e.target.value)} />
         </div>
  <div>
      <label htmlFor="date">Day&Time</label>
