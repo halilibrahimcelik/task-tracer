@@ -1,8 +1,14 @@
 .wrapper{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin:5rem;
+    
+    h1{
+        color:#3c2505;
+        font-size: 3rem;
+        text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    }
 
 }
 

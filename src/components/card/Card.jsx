@@ -73,29 +73,25 @@ const editTaskHandler=(id,task,date)=>{
 const editedTask=initialData.filter((task)=> task.id===id).map(
   ()=>({task:task,date:date, time:hour, id:id, isDone:false})
 )
-console.log(editedTask);
- let newArr=[];
 
 const localData=JSON.parse(localStorage.getItem("Tasks"));
-console.log(localData)
-localData.map((data)=>{
-  let returnData;
-  if(data.id===id){
-   returnData=Object.assign(data,editedTask);//!replacing new Input with the old ones;
-   
-  newArr.push(returnData[0])
-  }
-  return newArr
 
-})
+console.log(localData)
+const newfilteredTASK=localData.filter((data)=> data.id!==id)
+
 setEditedData(editedTask);
-console.log(newArr);
-setData([...newArr])
+
+newfilteredTASK.push(editedTask[0])
+console.log(newfilteredTASK)
+// setData((prevTask) => {
+//   return [...prevTask,newArr];
+// });
+setData([...newfilteredTASK])
 }
   return (
     <section className={styles.card}>
 
-<h1>Task-Tracker</h1>
+
 <ToggleButton onToggle={onToggleHandler}  isShow={isShow} />
 {!isShow?<AddTask onTaskHandler={addTaskHandler}  onToggle={onToggleHandler}/>:null
 

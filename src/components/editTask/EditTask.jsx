@@ -31,11 +31,11 @@ editTaskHandler(id,initialTask,initialDate)
 
   return (
     <>
-        <div className={styles.container}>
+        <div className={styles.container}  >
             <form  className={styles["form-area"]} onSubmit={(e)=>submitHandler(e)} >
             <div>
                 <label htmlFor="task">Task</label>
-                 <input type="text" id='task'  value={initialTask} onChange={(e)=>setInitialTask(e.target.value)}  />
+                 <input type="text" id='task'  value={initialTask} maxLength={25} onChange={(e)=>setInitialTask(e.target.value)}  />
             </div>
              <div>
                  <label htmlFor="date"  >Day&Time</label>
