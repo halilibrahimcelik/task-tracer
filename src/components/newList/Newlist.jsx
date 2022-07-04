@@ -3,10 +3,14 @@ import styles from "./newList.module.scss";
 import { MdDeleteSweep } from 'react-icons/md'
 import { BiEdit } from 'react-icons/bi';
 import EditTask from '../editTask/EditTask';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Newlist = (props) => {
   const  {task,date,time,isDone ,isDoneHandler,id,onRemoveTaskHandler,index, onEditTaskHandler,editedData}=props;
     const[isClicked,setClicked] =useState(true);
     const [showModal,setModal]=useState(false);
+    const [isToggle,setToggle]=useState(false);
 
 
     
@@ -28,15 +32,34 @@ isDoneHandler(newArr);
    }
 
 
+   const notify = () => toast.info(`Are you Sure? 
+   If you are sure click me again I dare You
+   `, {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
 
    const removeTaskHandler=()=>{
-    onRemoveTaskHandler(index)
+    if(!isToggle){
+      notify();
+      setToggle(true)
+    }else{
+
+      onRemoveTaskHandler(index);
+      setToggle(false);
+    }
    
    }
 
 
 
 const showModalHandler=()=>{
+ 
   setModal(!showModal)
 }
   return (
@@ -58,6 +81,16 @@ const showModalHandler=()=>{
 
    <BiEdit className= {styles.iconEdit} onClick={()=>showModalHandler()}  />
    < MdDeleteSweep className= {styles.icon} onClick={()=>removeTaskHandler()} />
+   <ToastContainer 
+   position="top-right"
+   autoClose={5000}
+   hideProgressBar={false}
+   newestOnTop={false}
+   closeOnClick
+   rtl={false}
+   pauseOnFocusLoss
+   draggable
+   pauseOnHover/>
 {showModal?   <EditTask   editedData={editedData} id={id} isDone={isDone} editTaskHandler={onEditTaskHandler}  showModalHandler={showModalHandler} />:null}
   </section>
     </>
