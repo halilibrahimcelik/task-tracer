@@ -17,7 +17,7 @@ const AddTask = (props) => {
         e.preventDefault();
 // console.log(initialDate,initialTask);
 if(initialTask==="" ||initialDate===""){
-   console.log("please fill the blank");
+
 setValid(true)
    return
    
