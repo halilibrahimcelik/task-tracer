@@ -8,7 +8,8 @@ const Card = () => {
 
 const [initialData,setData]=useState([]);
 const [isShow,setShow]=useState(false);
-console.log(initialData);
+const [editedData,setEditedData]=useState([{task:"", date:""}])
+
  //!LocalStorage
       useEffect(() => {
         const localData = localStorage.getItem("Tasks");
@@ -36,7 +37,7 @@ const isDoneHandler =(newTask)=>{
 const {id,isDone}=newTask[0]
 
 const localData=JSON.parse(localStorage.getItem("Tasks"));
-console.log(+id,isDone);
+
 console.log(localData)
 let newArr=[]
 localData.map((data)=>{
@@ -52,6 +53,9 @@ setData([...newArr])
 ;
 }
 
+
+
+
 const onToggleHandler=()=>{
   setShow(!isShow)
 
@@ -64,6 +68,30 @@ const removeTaskHandler=(index)=>{
   setData([...taskList]);
 }
 
+const editTaskHandler=(id,task,date)=>{
+  let hour=new Date().toTimeString().split(' ')[0].slice(0,5);
+const editedTask=initialData.filter((task)=> task.id===id).map(
+  ()=>({task:task,date:date, time:hour, id:id, isDone:false})
+)
+console.log(editedTask);
+ let newArr=[];
+
+const localData=JSON.parse(localStorage.getItem("Tasks"));
+console.log(localData)
+localData.map((data)=>{
+  let returnData;
+  if(data.id===id){
+   returnData=Object.assign(data,editedTask);//!replacing new Input with the old ones;
+   
+  newArr.push(returnData[0])
+  }
+  return newArr
+
+})
+setEditedData(editedTask);
+console.log(newArr);
+setData([...newArr])
+}
   return (
     <section className={styles.card}>
 
@@ -74,7 +102,7 @@ const removeTaskHandler=(index)=>{
 }
 
 
-{initialData.length===0?null:<TaskList  data={initialData}  isDoneHandler={isDoneHandler}  onRemoveTaskHandler={removeTaskHandler}/>}
+{initialData.length===0?null:<TaskList  data={initialData} editedData={editedData}  isDoneHandler={isDoneHandler} onEditTaskHandler={editTaskHandler}  onRemoveTaskHandler={removeTaskHandler}/>}
 
     </section>
   )

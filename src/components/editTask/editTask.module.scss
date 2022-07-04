@@ -1,0 +1,57 @@
+@import "../../sass/variables";
+
+.container{
+    position: fixed;
+    background-color: rgba(0,0,0, 0.6);
+    top:0;
+    left:0;
+    height: 100vh;
+ width: 100%;
+}
+.form-area{
+    
+    display: flex;
+    flex-direction: column;
+margin-top: 15rem;
+    border-radius: 9px;
+    max-width: 40rem;
+    margin:15rem auto;
+    padding:1rem;
+    gap:1rem;
+    background-color: $color-bg-coral;
+   
+    input{
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        -webkit-box-sizing:border-box;
+        -moz-box-sizing: border-box;
+        padding: 0.4rem;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+    };
+    
+   .btn{
+    max-width: 10rem;
+    padding:0.5rem 0.8rem;
+    margin: 0 auto;
+    border: none;
+    border-radius: 5px;
+    background-color: $color-btn-show;
+    color:$Color-text;
+    cursor: pointer;
+transform: scale(0.90);
+
+    transition: all 0.5s ease-out;
+    backface-visibility: hidden;
+ 
+ 
+    &:hover{
+    
+        transform: scale(1);
+    }
+} 
+   
+
+}

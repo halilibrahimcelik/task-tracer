@@ -53,7 +53,7 @@ onTaskHandler(newTask);
         </div>
  <div>
      <label htmlFor="date">Day&Time</label>
-     <input type="date" value={initialDate}  onChange={(e)=>setinitialDate(e.target.value)} />
+     <input type="date" value={initialDate}  min="2019-01-01" max="2025-12-31" onChange={(e)=>setinitialDate(e.target.value)} />
  </div>
 
  <button className={styles.btn} >Save Task</button>
