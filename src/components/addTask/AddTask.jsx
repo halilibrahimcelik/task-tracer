@@ -6,6 +6,7 @@ const AddTask = (props) => {
     const [initialTask, setinitialTask] = useState("");
     const [initialDate, setinitialDate] = useState("");
     const [isValid,setValid]=useState(false);
+    const[isDone,setDone]=useState(false);
   
     let hour=new Date().toTimeString().split(' ')[0].slice(0,5);
 
@@ -31,7 +32,8 @@ const newTask={
     task:initialTask,
     date:initialDate,
     time:hour,
-    // id:Math.random().toString()
+    isDone:false,
+    id:Math.random().toString()
 }
 
 onTaskHandler(newTask);
