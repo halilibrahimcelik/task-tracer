@@ -8,12 +8,12 @@ const Card = () => {
 
 const [initialData,setData]=useState([]);
 const [isShow,setShow]=useState(false);
-const [editedData,setEditedData]=useState([{task:"", date:""}])
+
 
  //!LocalStorage
       useEffect(() => {
         const localData = localStorage.getItem("Tasks");
-        console.log(localData);
+    
         if (localData) {
         
           setData(JSON.parse(localData));
@@ -76,16 +76,13 @@ const editedTask=initialData.filter((task)=> task.id===id).map(
 
 const localData=JSON.parse(localStorage.getItem("Tasks"));
 
-console.log(localData)
+
 const newfilteredTASK=localData.filter((data)=> data.id!==id)
 
-setEditedData(editedTask);
+
 
 newfilteredTASK.push(editedTask[0])
-console.log(newfilteredTASK)
-// setData((prevTask) => {
-//   return [...prevTask,newArr];
-// });
+
 setData([...newfilteredTASK])
 }
   return (
@@ -98,7 +95,7 @@ setData([...newfilteredTASK])
 }
 
 
-{initialData.length===0?null:<TaskList  data={initialData} editedData={editedData}  isDoneHandler={isDoneHandler} onEditTaskHandler={editTaskHandler}  onRemoveTaskHandler={removeTaskHandler}/>}
+{initialData.length===0?null:<TaskList  data={initialData}   isDoneHandler={isDoneHandler} onEditTaskHandler={editTaskHandler}  onRemoveTaskHandler={removeTaskHandler}/>}
 
     </section>
   )

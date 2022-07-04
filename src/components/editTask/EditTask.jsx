@@ -1,19 +1,18 @@
 import React,{useEffect, useState} from 'react'
 import styles from "./editTask.module.scss"
 const EditTask = (props) => {
-    const {editTaskHandler,showModalHandler,id,editedData}=props;
+    const {editTaskHandler,showModalHandler,id,currentData}=props;
+    const {date,task}=currentData;
     const [initialTask, setInitialTask] = useState("");
     const [initialDate, setInitialDate] = useState("");
-    const {task,date}=editedData[0];
 
-// console.log(task,date)
+
+
     useEffect(()=>{
         setInitialTask(task);
         setInitialDate(date);
 
     },[task,date])
-
-    // console.log(editedData)
 const submitHandler=(e)=>{
     e.preventDefault();
     setTimeout(()=>{showModalHandler()},100)

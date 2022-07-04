@@ -7,10 +7,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Newlist = (props) => {
-  const  {task,date,time,isDone ,isDoneHandler,id,onRemoveTaskHandler,index, onEditTaskHandler,editedData}=props;
+  const  {task,date,time,isDone ,isDoneHandler,id,onRemoveTaskHandler,index, onEditTaskHandler}=props;
     const[isClicked,setClicked] =useState(true);
     const [showModal,setModal]=useState(false);
     const [isToggle,setToggle]=useState(false);
+    const [currentData,setCurrentData]=useState("");
 
 
     
@@ -60,7 +61,8 @@ isDoneHandler(newArr);
 
 const showModalHandler=()=>{
  
-  setModal(!showModal)
+  setModal(!showModal);
+  setCurrentData({task:task,date:date})
 }
   return (
     <>
@@ -91,7 +93,7 @@ const showModalHandler=()=>{
    pauseOnFocusLoss
    draggable
    pauseOnHover/>
-{showModal?   <EditTask   editedData={editedData} id={id} isDone={isDone} editTaskHandler={onEditTaskHandler}  showModalHandler={showModalHandler} />:null}
+{showModal?   <EditTask  currentData={currentData}   id={id} isDone={isDone} editTaskHandler={onEditTaskHandler}  showModalHandler={showModalHandler} />:null}
   </section>
     </>
   )

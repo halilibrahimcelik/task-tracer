@@ -3,7 +3,7 @@ import React from 'react';
 
 import Newlist from '../newList/Newlist';
 
-const TaskList = ({data, isDoneHandler,onRemoveTaskHandler,onEditTaskHandler,editedData}) => {
+const TaskList = ({data, isDoneHandler,onRemoveTaskHandler,onEditTaskHandler}) => {
 //  console.log(data)
 
   return (
@@ -11,7 +11,7 @@ const TaskList = ({data, isDoneHandler,onRemoveTaskHandler,onEditTaskHandler,edi
     <>
       {data.map((taskData,index)=>{
         const {task,date,time, isDone,id}=taskData
-    return  ( <Newlist task={task} date={date} time={time} key={index}  editedData={editedData} id={id} isDone={isDone} index={index} onEditTaskHandler={onEditTaskHandler} onRemoveTaskHandler={onRemoveTaskHandler} isDoneHandler={isDoneHandler} />  )
+    return  ( <Newlist task={task} date={date} time={time} key={index}   id={id} isDone={isDone} index={index} onEditTaskHandler={onEditTaskHandler} onRemoveTaskHandler={onRemoveTaskHandler} isDoneHandler={isDoneHandler} />  )
       
       })}
     </>
